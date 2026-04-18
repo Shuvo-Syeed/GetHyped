@@ -1,0 +1,155 @@
+/* Container holding all cards */
+.stack-wrapper {
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+/* Individual Card Styling */
+.stack-card {
+  position: sticky;
+  width: 95%;
+  max-width: 1300px;
+  min-height: 85vh; /* Responsive height */
+  margin-bottom: 100px;
+  border-radius: 40px;
+  padding: 60px;
+  box-sizing: border-box;
+  box-shadow: 0 20px 50px rgba(0,0,0,0.1);
+  display: flex;
+  flex-direction: column;
+}
+
+/* Header Section */
+.stack-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 20px;
+}
+
+.expertise-badge {
+  background: #fff;
+  padding: 8px 16px;
+  border-radius: 10px;
+  font-weight: 700;
+  font-size: 14px;
+}
+
+.card-id {
+  font-size: 8rem;
+  font-weight: 800;
+  color: rgba(0, 0, 0, 0.08); /* Ghost number effect */
+  line-height: 1;
+}
+
+/* Title */
+.stack-title {
+  font-size: clamp(3rem, 8vw, 6rem); /* Responsive font size */
+  font-weight: 800;
+  margin: -20px 0 40px 0;
+  letter-spacing: -3px;
+}
+
+/* Body Layout */
+.stack-body {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+  flex: 1;
+}
+
+.stack-text-side {
+  max-width: 450px;
+}
+
+.stack-desc {
+  font-size: 1.4rem;
+  line-height: 1.4;
+  margin-bottom: 30px;
+  font-weight: 500;
+}
+
+.stack-btn {
+  background: #000;
+  color: #fff;
+  border: none;
+  padding: 14px 28px;
+  border-radius: 30px;
+  font-size: 1.1rem;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+/* Video Frame Styling */
+.stack-video-side {
+  position: relative;
+  display: flex;
+  justify-content: flex-end;
+}
+
+.video-frame {
+  width: 320px;
+  height: 450px;
+  background: #000;
+  border: 6px solid #fff;
+  border-radius: 30px;
+  overflow: hidden;
+  transform: rotate(4deg); /* Tilt from your image */
+  box-shadow: 0 15px 30px rgba(0,0,0,0.15);
+}
+
+.video-frame video {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+/* --- MOBILE RESPONSIVE (FOR PHONES) --- */
+@media (max-width: 768px) {
+  .stack-card {
+    padding: 30px;
+    height: auto;
+    min-height: 90vh;
+    margin-bottom: 40px;
+    top: 20px !important; /* Fixed top for mobile overlap */
+  }
+
+  .card-id {
+    font-size: 4rem;
+  }
+
+  .stack-title {
+    font-size: 3rem;
+    margin-top: 0;
+  }
+
+  .stack-body {
+    flex-direction: column; /* Stack vertically on mobile */
+    align-items: center;
+    text-align: center;
+  }
+
+  .stack-text-side {
+    order: 2; /* Text goes below video on mobile */
+    margin-top: 40px;
+  }
+
+  .stack-video-side {
+    order: 1;
+    width: 100%;
+    justify-content: center;
+  }
+
+  .video-frame {
+    width: 100%;
+    max-width: 260px;
+    height: 350px;
+    transform: rotate(0deg); /* Remove tilt on small screens for better fit */
+  }
+
+  .stack-desc {
+    font-size: 1.1rem;
+  }
+}
