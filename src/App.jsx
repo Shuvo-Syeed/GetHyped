@@ -1,6 +1,6 @@
 import './App.css'
 import Navbar from './components/Navbar'
-import Banner from './components/Banner'
+
 import AboutSection from './components/AboutSection'
 import CardStack from './components/CardStack'
 import ContentWorkSection from './components/ContentWorkSection'

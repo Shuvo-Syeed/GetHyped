@@ -42,7 +42,7 @@ const cardData = [
 
 const CardStack = () => {
   return (
-    <div className="stack-wrapper">
+    <div className="stack-wrapper" style={{ backgroundColor: '#faf4ec' }}>
       {cardData.map((card, index) => (
         <section 
           className="stack-card" 

@@ -32,7 +32,7 @@ const Brand = () => {
 
   const styles = {
     container: {
-      backgroundColor: '#f9f7f2', // Cream theme
+      backgroundColor: '#faf4ec', // Cream theme
       padding: '100px 0',
       overflow: 'hidden',
       width: '100%',

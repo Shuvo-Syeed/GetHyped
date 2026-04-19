@@ -3,7 +3,7 @@ import React from 'react';
 
 const AboutSection = () => {
   const colors = {
-    background: '#f9f7f2', // Theme cream background
+    background: '#faf4ec', // Theme cream background
     text: '#1a1a1a', 
     pink: '#f0abfc', // "Raakt" color
     border: '#000',

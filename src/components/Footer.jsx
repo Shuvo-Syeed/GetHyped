@@ -20,7 +20,7 @@ const [mousePos, setMousePos] = useState({ x: 0, y: 0 });
 
   const styles = {
     footer: {
-      backgroundColor: '#f3f1eb', // Cream base
+      backgroundColor: '#faf4ec', // Cream base
       minHeight: '100vh',
       width: '100%',
       position: 'relative',

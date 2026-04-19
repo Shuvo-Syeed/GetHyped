@@ -34,7 +34,7 @@ const Cards = () => {
 
   const styles = {
     section: {
-      backgroundColor: '#f9f7f2', // Cream background from pic
+      backgroundColor: '#faf4ec', // Cream background from pic
       padding: '100px 5%',
       minHeight: '100vh',
       fontFamily: 'Helvetica, Arial, sans-serif',
