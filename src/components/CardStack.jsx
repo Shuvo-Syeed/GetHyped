@@ -8,7 +8,7 @@ const cardData = [
     title: 'Strategy',
     description: 'We help you define your brand DNA and social strategy.',
     buttonText: 'Meer over strategy',
-    bgColor: '#fdf4ff',
+    bgColor: '#ffffff',
     videoSrc: 'YOUR_VIDEO_1_URL', 
   },
   {
@@ -35,7 +35,7 @@ const cardData = [
     title: 'Activation',
     description: 'Zichtbaar waar en wanneer het telt. De juiste content verdient het om gezien te worden. We verspreiden de content waar jouw doelgroep is.',
     buttonText: 'Meer over activatie',
-    bgColor: '#4ade80',
+    bgColor: '#0e8dff',
     videoSrc: 'YOUR_VIDEO_3_URL',
   }
 ];

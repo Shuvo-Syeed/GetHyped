@@ -8,7 +8,7 @@ const ContentWorkSection = () => {
       id: 1,
       title: "Van nul naar vol, binnen 3 weken",
       client: "Bullit",
-      borderColor: "#faf4ec", // Orange
+      borderColor: "#fa5423", // Orange
       initialRot: "-2.5deg",
     },
     {
