@@ -40,7 +40,8 @@ const Cards = () => {
       padding: '100px 5%',
       minHeight: '100vh',
       fontFamily: 'Helvetica, Arial, sans-serif',
-      overflow: 'hidden'
+      overflow: 'hidden',
+   
     },
     header: {
       maxWidth: '1200px',
@@ -100,7 +101,7 @@ const Cards = () => {
   return (
     <section style={styles.section}>
       <div style={styles.header}>
-        <h1 style={styles.title}>Get Hyped. Get<br/>Noticed. Get Results.</h1>
+        <h1 style={styles.title}>Get Hyped. Get<br/>Noticed.Get Results.</h1>
         <p style={styles.subtitle}>Klaar met gokken op content<br/>die niets oplevert?</p>
       </div>
 

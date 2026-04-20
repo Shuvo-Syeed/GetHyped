@@ -5,11 +5,20 @@ const Footer = () => {
   const [mousePos, setMousePos] = useState({ x: 0, y: 0 });
   const [isHovering, setIsHovering] = useState(false);
   const [btnHover, setBtnHover] = useState(null);
+  const [isMobile, setIsMobile] = useState(false);
 
   useEffect(() => {
     const handleMove = (e) => setMousePos({ x: e.clientX, y: e.clientY });
+    const handleResize = () => setIsMobile(window.innerWidth <= 768);
+    
+    handleResize(); // Initial check
     window.addEventListener('mousemove', handleMove);
-    return () => window.removeEventListener('mousemove', handleMove);
+    window.addEventListener('resize', handleResize);
+    
+    return () => {
+      window.removeEventListener('mousemove', handleMove);
+      window.removeEventListener('resize', handleResize);
+    };
   }, []);
 
   const tags = [
@@ -23,7 +32,7 @@ const Footer = () => {
       onMouseEnter={() => setIsHovering(true)} 
       onMouseLeave={() => setIsHovering(false)}
       style={{
-        backgroundColor: '#faf4ec', // ক্রিম ব্যাকগ্রাউন্ড
+        backgroundColor: '#faf4ec',
         minHeight: '100vh',
         width: '100%',
         position: 'relative',
@@ -34,8 +43,14 @@ const Footer = () => {
       }}
     >
       {/* ১. টপ হেডলাইন ও বাটন সেকশন */}
-      <div style={{ padding: '100px 20px', textAlign: 'center', zIndex: 10 }}>
-        <h1 style={{ fontSize: 'clamp(40px, 10vw, 110px)', fontWeight: '900', letterSpacing: '-4px', marginBottom: '40px' }}>
+      <div style={{ padding: isMobile ? '60px 20px' : '100px 20px', textAlign: 'center', zIndex: 10 }}>
+        <h1 style={{ 
+          fontSize: 'clamp(40px, 10vw, 110px)', 
+          fontWeight: '900', 
+          letterSpacing: isMobile ? '-2px' : '-4px', 
+          marginBottom: '40px',
+          lineHeight: 1
+        }}>
           Let's Get Hyped!
         </h1>
         <div style={{ display: 'flex', gap: '15px', justifyContent: 'center', flexWrap: 'wrap' }}>
@@ -52,23 +67,23 @@ const Footer = () => {
         </div>
       </div>
 
-      {/* ২. নিচের সেকশন (যেকানে কালার স্প্লিট এবং লোগো আছে) */}
+      {/* ২. নিচের সেকশন */}
       <div style={{ position: 'relative', marginTop: 'auto', width: '100%' }}>
         
-        {/* পিঙ্ক সার্কেল (একদম ফুল রাউন্ড এবং কাটা পড়বে না) */}
+        {/* পিঙ্ক সার্কেল */}
         <div style={{ 
           position: 'absolute', 
-          top: '-70px', // পজিশন ঠিক করা হয়েছে যাতে পুরোটা দেখা যায়
-          right: '10%', 
-          width: 'clamp(110px, 15vw, 140px)', 
-          height: 'clamp(110px, 15vw, 140px)', 
+          top: isMobile ? '-50px' : '-70px', 
+          right: isMobile ? '5%' : '10%', 
+          width: isMobile ? '100px' : '140px', 
+          height: isMobile ? '100px' : '140px', 
           backgroundColor: '#f0abfc', 
           borderRadius: '50%', 
           display: 'flex', 
           alignItems: 'center', 
           justifyContent: 'center', 
           boxShadow: '0 10px 20px rgba(0,0,0,0.1)', 
-          zIndex: 30 // সবচেয়ে উপরে রাখার জন্য
+          zIndex: 30 
         }}>
           <svg viewBox="0 0 100 100" style={{ width: '90%', height: '90%' }}>
             <path id="circlePath" d="M 50, 50 m -35, 0 a 35,35 0 1,1 70,0 a 35,35 0 1,1 -70,0" fill="transparent" />
@@ -82,67 +97,94 @@ const Footer = () => {
         {/* তেরছা গ্রে ব্যাকগ্রাউন্ড */}
         <div style={{ 
           backgroundColor: '#ebe9e3', 
-          padding: '120px 5% 50px ', 
-          clipPath: 'polygon(-50% 100%, 100% 0%, 100% 100%, 0% 100%)',
+          padding: isMobile ? '80px 20px 40px' : '120px 5% 50px', 
+          clipPath: isMobile ? 'polygon(0 15%, 100% 0, 100% 100%, 0% 100%)' : 'polygon(-50% 100%, 100% 0%, 100% 100%, 0% 100%)',
           zIndex: 1,
-          marginLeft: '30px', 
-          marginRight: '30px',
-      
-           // একটু বাম দিকে সরিয়ে দেওয়া হয়েছে যাতে পুরোটা দেখা যায়
+          marginLeft: isMobile ? '10px' : '30px', 
+          marginRight: isMobile ? '10px' : '30px',
         }}>
           
           <div style={{ 
-            display: 'flex', justifyContent: 'space-between', alignItems: 'flex-end', flexWrap: 'wrap', gap: '40px' 
+            display: 'flex', 
+            flexDirection: isMobile ? 'column' : 'row',
+            justifyContent: 'space-between', 
+            alignItems: isMobile ? 'flex-start' : 'flex-end', 
+            gap: isMobile ? '30px' : '40px' 
           }}>
-            {/* লোগো (GET - ব্ল্যাক, HYPED - আউটলাইন) */}
-            <div style={{ flex: '1 1 300px', transform: 'rotate(-4deg) translateY(20px)' }}>
-              <h2 style={{ fontFamily: 'Impact', fontSize: 'clamp(60px, 10vw, 130px)', margin: 0, lineHeight: 0.8 }}>
+            {/* লোগো */}
+            <div style={{ 
+              flex: '1 1 auto', 
+              transform: isMobile ? 'rotate(-2deg)' : 'rotate(-4deg) translateY(20px)',
+              marginBottom: isMobile ? '20px' : '0'
+            }}>
+              <h2 style={{ fontFamily: 'Impact', fontSize: 'clamp(60px, 12vw, 130px)', margin: 0, lineHeight: 0.8 }}>
                 <span style={{ color: '#000', fontWeight: 'bold' }}>GET</span>
-                <span style={{ color: '#fff', WebkitTextStroke: '2px #000' }}>HYPED</span>
+                <span style={{ color: '#fff', WebkitTextStroke: isMobile ? '1px #000' : '2px #000' }}>HYPED</span>
               </h2>
             </div>
 
             {/* মাঝখানের লিংক ও সোশ্যাল */}
-            <div style={{ flex: '1 1 300px', textAlign: 'center',justifyContent: 'center', display: 'flex', flexDirection: 'column', alignItems: 'center', minWidth: '250px' }}>
-              <div style={{ display: 'flex', gap: '8px', justifyContent: 'center', marginBottom: '30px', flexWrap: 'wrap' }}>
+            <div style={{ 
+              flex: '1 1 auto', 
+              textAlign: isMobile ? 'left' : 'center',
+              display: 'flex', 
+              flexDirection: 'column', 
+              alignItems: isMobile ? 'flex-start' : 'center', 
+              minWidth: isMobile ? '100%' : '250px' 
+            }}>
+              <div style={{ 
+                display: 'flex', 
+                gap: '8px', 
+                justifyContent: isMobile ? 'flex-start' : 'center', 
+                marginBottom: '30px', 
+                flexWrap: 'wrap' 
+              }}>
                 {['Expertises', 'Work', 'About', 'Contact'].map(item => (
                   <button key={item} style={{ backgroundColor: '#fff', padding: '8px 18px', borderRadius: '20px', fontWeight: '800', fontSize: '13px', border: 'none', cursor: 'pointer' }}>{item}</button>
                 ))}
               </div>
               
-              <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'center', gap: '15px', marginBottom: '20px' }}>
+              <div style={{ display: 'flex', alignItems: 'center', justifyContent: isMobile ? 'flex-start' : 'center', gap: '15px', marginBottom: '20px' }}>
                 <span style={{ fontWeight: '900', fontSize: '14px', textTransform: 'uppercase' }}>Follow us</span>
-                {['in', 'tk', 'ig', 'yt'].map(s => (
-                  <div key={s} style={{ width: '35px', height: '35px', borderRadius: '50%', border: '1.5px solid #000', display: 'flex', alignItems: 'center', justifyContent: 'center', fontSize: '12px', fontWeight: 'bold', cursor: 'pointer', backgroundColor: 'transparent' }}>{s}</div>
-                ))}
+                <div style={{ display: 'flex', gap: '10px' }}>
+                    {['in', 'tk', 'ig', 'yt'].map(s => (
+                        <div key={s} style={{ width: '35px', height: '35px', borderRadius: '50%', border: '1.5px solid #000', display: 'flex', alignItems: 'center', justifyContent: 'center', fontSize: '12px', fontWeight: 'bold', cursor: 'pointer' }}>{s}</div>
+                    ))}
+                </div>
               </div>
-              <div style={{ fontSize: '11px', opacity: 0.6 }}>© 2025 Get Hyped | Design by Dylan | Privacyvoorwaarden</div>
+              <div style={{ fontSize: '11px', opacity: 0.6 }}>© 2025 Get Hyped | Design by Dylan</div>
             </div>
 
             {/* ডান পাশের কন্টাক্ট */}
-            <div style={{ flex: '1 1 200px', textAlign: 'left', minWidth: '220px', paddingBottom: '10px' }}>
-              <div style={{ marginBottom: '20px' }}>
+            <div style={{ 
+              flex: '1 1 auto', 
+              textAlign: 'left', 
+              minWidth: isMobile ? '100%' : '220px', 
+              display: isMobile ? 'grid' : 'block',
+              gridTemplateColumns: isMobile ? '1fr 1fr' : 'none',
+              gap: '20px'
+            }}>
+              <div style={{ marginBottom: isMobile ? '0' : '20px' }}>
                 <p style={{ fontWeight: '900', fontSize: '18px', margin: '0 0 5px 0' }}>Contact</p>
-                <p style={{ margin: 0, fontSize: '15px', fontWeight: '500' }}>info@gethyped.nl</p>
-                <p style={{ margin: 0, fontSize: '15px', fontWeight: '500' }}>+31 6 1533 7496</p>
+                <p style={{ margin: 0, fontSize: '14px', fontWeight: '500' }}>info@gethyped.nl</p>
+                <p style={{ margin: 0, fontSize: '14px', fontWeight: '500' }}>+31 6 1533 7496</p>
               </div>
               <div>
                 <p style={{ fontWeight: '900', fontSize: '18px', margin: '0 0 5px 0' }}>Adres</p>
-                <p style={{ margin: 0, fontSize: '15px', fontWeight: '500' }}>Beltrumsestraat 6,<br/>7141 AL Groenlo</p>
+                <p style={{ margin: 0, fontSize: '14px', fontWeight: '500' }}>Beltrumsestraat 6,<br/>7141 AL Groenlo</p>
               </div>
             </div>
           </div>
         </div>
       </div>
 
-      {/* Floating Elements (ডেস্কটপ মাউস হোভার ইফেক্ট) */}
-      {isHovering && window.innerWidth > 768 && tags.map((tag, i) => (
+      {/* Floating Elements (ডেস্কটপে মাউস হোভার ইফেক্ট) */}
+      {!isMobile && isHovering && tags.map((tag, i) => (
         <motion.div key={i} animate={{ x: mousePos.x + tag.x, y: mousePos.y + tag.y }} transition={{ type: 'spring', damping: 25 }} 
           style={{ position: 'fixed', backgroundColor: tag.color, color: '#fff', padding: '8px 22px', borderRadius: '15px', fontFamily: 'Impact', fontSize: '1.6rem', border: '4px solid #000', transform: `rotate(${tag.rot}deg)`, pointerEvents: 'none', zIndex: 100 }}>
           {tag.text}
         </motion.div>
       ))}
-
     </footer>
   );
 };
