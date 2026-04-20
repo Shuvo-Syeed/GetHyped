@@ -1,6 +1,7 @@
 
 import React from 'react';
 
+
 const AboutSection = () => {
   const colors = {
     background: '#faf4ec', // Theme cream background
@@ -17,7 +18,7 @@ const AboutSection = () => {
       minHeight: '100vh',
       display: 'flex',
       flexDirection: 'column',
-      alignItems: 'center',
+      alignItems: 'left',
     },
     titleWrapper: {
       maxWidth: '1300px',
@@ -45,8 +46,8 @@ const AboutSection = () => {
     },
     imageContainer: {
       flex: '1 1 400px',
-      maxWidth: '500px',
-      height: '600px',
+      maxWidth: '300px',
+      height: '400px',
       backgroundColor: '#ddd', // Placeholder color
       borderRadius: '40px',
       overflow: 'hidden',
@@ -102,9 +103,9 @@ const AboutSection = () => {
       {/* Upper Big Title */}
       <div style={styles.titleWrapper}>
         <h1 style={styles.title}>
-          Wij maken content die opvalt. <br />
-          Die blijft hangen. Die jouw <br />
-          doelgroep <span style={styles.highlight}>Raakt</span> en jouw merk <br />
+        Wij maken content die.<br />
+          Die blijft hangen. Die jouw 
+          doelgroepRaakten jouw merk 
           in beweging brengt.
         </h1>
       </div>
@@ -118,7 +119,7 @@ const AboutSection = () => {
           onMouseLeave={(e) => e.currentTarget.style.transform = 'rotate(-3deg) scale(1)'}
         >
           {/* Tumi ekhane tumar image boshabe */}
-          <div style={{ width: '100%', height: '100%', background: '#ccc' }}></div>
+          <div style={{ width: '100%', height: '100%', background: '#ccc' }}><img src="/img1.webp" alt="About Us" style={{ width: '100%', height: '100%', objectFit: 'cover' }} /> </div>
         </div>
 
         {/* Right Side: Text & Button */}

@@ -6,7 +6,7 @@ const Navbar = () => {
 
   const styles = {
     header: {
-      position: 'fixed', // Force fixed jate scroller upore thake
+      
       top: 0,
       left: 0,
       width: '100%',

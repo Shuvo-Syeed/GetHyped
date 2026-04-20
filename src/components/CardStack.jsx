@@ -9,7 +9,7 @@ const cardData = [
     description: 'We help you define your brand DNA and social strategy.',
     buttonText: 'Meer over strategy',
     bgColor: '#ffffff',
-    videoSrc: 'YOUR_VIDEO_1_URL', 
+    videoSrc: '/a.mp4', 
   },
   {
     id: '02',
@@ -18,7 +18,7 @@ const cardData = [
     description: 'We maken content die opvalt. Blijft hangen. En jouw doelgroep raakt.',
     buttonText: 'Meer over content',
     bgColor: '#f0abfc',
-    videoSrc: 'YOUR_VIDEO_2_URL',
+    videoSrc: '/b.mp4',
   },
   {
     id: '03',
@@ -27,7 +27,7 @@ const cardData = [
     description: 'Zichtbaar waar en wanneer het telt. De juiste content verdient het om gezien te worden. We verspreiden de content waar jouw doelgroep is.',
     buttonText: 'Meer over activatie',
     bgColor: '#4ade80',
-    videoSrc: 'YOUR_VIDEO_3_URL',
+    videoSrc: '/m.mp4',
   },
    {
     id: '04',
@@ -36,7 +36,7 @@ const cardData = [
     description: 'Zichtbaar waar en wanneer het telt. De juiste content verdient het om gezien te worden. We verspreiden de content waar jouw doelgroep is.',
     buttonText: 'Meer over activatie',
     bgColor: '#0e8dff',
-    videoSrc: 'YOUR_VIDEO_3_URL',
+    videoSrc: '/n.mp4',
   }
 ];
 

@@ -1,103 +1,104 @@
-/* Container holding all cards */
+/* Container */
 .stack-wrapper {
-  padding: 20px;
+  padding: 100px 0;
   display: flex;
   flex-direction: column;
   align-items: center;
+  background-color: #faf4ec;
 }
 
-/* Individual Card Styling */
+
 .stack-card {
   position: sticky;
-  width: 95%;
-  max-width: 1300px;
-  min-height: 85vh; /* Responsive height */
-  margin-bottom: 100px;
-  border-radius: 40px;
-  padding: 60px;
+  top: 60px;
+  width: 94%; 
+  max-width: 1400px;
+
+  min-height: 550px; 
+  margin-bottom: 80px;
+  border-radius: 50px; 
+  padding: 60px 70px;
   box-sizing: border-box;
-  box-shadow: 0 20px 50px rgba(0,0,0,0.1);
   display: flex;
   flex-direction: column;
+  box-shadow: 0 10px 40px rgba(0,0,0,0.05);
 }
 
-/* Header Section */
 .stack-header {
   display: flex;
   justify-content: space-between;
-  align-items: center;
-  margin-bottom: 20px;
+  align-items: flex-start;
 }
 
 .expertise-badge {
   background: #fff;
-  padding: 8px 16px;
-  border-radius: 10px;
+  padding: 6px 15px;
+  border-radius: 8px;
   font-weight: 700;
   font-size: 14px;
 }
 
+
 .card-id {
-  font-size: 8rem;
+  font-size: 9rem;
   font-weight: 800;
-  color: rgba(0, 0, 0, 0.08); /* Ghost number effect */
-  line-height: 1;
+  color: rgba(0, 0, 0, 0.05);
+  line-height: 0.7;
 }
 
-/* Title */
+/* মেইন টাইটেল - বড় এবং বোল্ড */
 .stack-title {
-  font-size: clamp(3rem, 8vw, 6rem); /* Responsive font size */
+  font-size: clamp(3rem, 7vw, 7.5rem);
   font-weight: 800;
-  margin: -20px 0 40px 0;
-  letter-spacing: -3px;
+  margin: 10px 0 60px 0;
+  letter-spacing: -4px;
+  line-height: 0.9;
 }
 
-/* Body Layout */
 .stack-body {
   display: flex;
   justify-content: space-between;
-  align-items: flex-end;
+  align-items: flex-end; /* নিচের দিকে এলাইন করা */
   flex: 1;
 }
 
 .stack-text-side {
-  max-width: 450px;
+  max-width: 480px;
+  padding-bottom: 20px;
 }
 
 .stack-desc {
-  font-size: 1.4rem;
-  line-height: 1.4;
-  margin-bottom: 30px;
-  font-weight: 500;
+  font-size: 1.5rem;
+  line-height: 1.3;
+  margin-bottom: 35px;
+  font-weight: 600;
 }
 
+/* বাটন স্টাইল */
 .stack-btn {
   background: #000;
   color: #fff;
   border: none;
-  padding: 14px 28px;
+  padding: 12px 25px;
   border-radius: 30px;
   font-size: 1.1rem;
-  font-weight: 600;
+  font-weight: 700;
   cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
 }
 
-/* Video Frame Styling */
-.stack-video-side {
-  position: relative;
-  display: flex;
-  justify-content: flex-end;
-}
-
+/* ভিডিও ফ্রেম - ছবির মতো ভার্টিক্যাল এবং কার্ভ */
 .video-frame {
-  width: 320px;
-  height: 450px;
+  width: 380px;
+  height: 520px;
   background: #000;
-  border: 6px solid #fff;
-  border-radius: 30px;
+  border: 7px solid #fff;
+  border-radius: 40px;
   overflow: hidden;
-  transform: rotate(4deg); /* Tilt from your image */
-  box-shadow: 0 15px 30px rgba(0,0,0,0.15);
+  transform: rotate(3deg); /* হালকা টিল্ট */
+  box-shadow: 0 15px 35px rgba(0,0,0,0.1);
 }
 
 .video-frame video {
@@ -106,50 +107,24 @@
   object-fit: cover;
 }
 
-/* --- MOBILE RESPONSIVE (FOR PHONES) --- */
-@media (max-width: 768px) {
+/* মোবাইল রেসপনসিভ */
+@media (max-width: 992px) {
   .stack-card {
-    padding: 30px;
-    height: auto;
-    min-height: 90vh;
-    margin-bottom: 40px;
-    top: 20px !important; /* Fixed top for mobile overlap */
+    padding: 40px;
+    min-height: auto;
   }
-
-  .card-id {
-    font-size: 4rem;
-  }
-
-  .stack-title {
-    font-size: 3rem;
-    margin-top: 0;
-  }
-
   .stack-body {
-    flex-direction: column; /* Stack vertically on mobile */
+    flex-direction: column;
     align-items: center;
     text-align: center;
   }
-
-  .stack-text-side {
-    order: 2; /* Text goes below video on mobile */
-    margin-top: 40px;
-  }
-
-  .stack-video-side {
-    order: 1;
-    width: 100%;
-    justify-content: center;
-  }
-
   .video-frame {
-    width: 100%;
-    max-width: 260px;
-    height: 350px;
-    transform: rotate(0deg); /* Remove tilt on small screens for better fit */
+    width: 280px;
+    height: 400px;
+    margin-top: 30px;
+    transform: rotate(0deg);
   }
-
-  .stack-desc {
-    font-size: 1.1rem;
+  .card-id {
+    font-size: 5rem;
   }
 }
